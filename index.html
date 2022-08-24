@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mundo Invertido</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body class="light-theme" aria-label="Utilizando o tema light" role="body">
+
+    <header aria-label="Cabeçalho da página.">
+
+      <audio id="music" autoplay>
+        <source src="assets/musics/normal-world.mpeg" aria-details="Audio do site" loop />
+      </audio>
+
+      <div class="header-content">
+        <img class="invert-element" src="assets/images/banner/logo.svg" alt="Imagem do Mundo Invertido" />
+        <p class="invert-element" role="text">
+          Uma jornada para quem não tem medo do desconhecido. O caminho para o
+          Mundo invertido é incerto e perigoso. Você tem coragem?
+          Então clique no botão abaixo para entrar
+          no Mundo Invertido.
+          Você foi avisado...
+        </p>
+        <button id="switch-theme-button" onclick="switchTheme()">Atravessar a realidade </button>
+      </div>
+
+      <div id="top-characters" class="world-characters">      </div>
+
+    </header>
+
+    <main>
+
+      <div id="bottom-characters" class="world-characters"></div>
+
+      <section id="section-inverted-world" class="container">
+        <div class="section-texts">
+          <h2>O Mundo Invertido</h2>
+          <p role="text">
+            O Mundo Invertido é quase como uma cópia do mundo real, porém com
+            monstros horripilantes, escuridão e uma energia sombria. Dizem 
+            que um grande comandante governa esse reino paralelo e deseja trazer
+            caos ao mundo real.
+          </p>
+        </div>
+
+        <img
+          class="invert-element"
+          src="assets/images/content/inverted-world.png"
+          alt="Imagem do Mundo Invertido"
+        />
+      </section>
+
+      <section id="section-stranger-things-trailer" class="container">
+        <div class="video-frame" aria-hidden="true">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/yTX0HxTq9wo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="section-texts">
+          <h2>Stranger Things Temp. 04</h2>
+          <p role="text">
+            Mais experientes, os heróis de Stranger Things também precisam
+            enfrentar desafios maiores do que nunca e fazer decisões que vão
+            mudar suas vidas para sempre. Confira ao lado o trailer da quarta
+            temporada.
+          </p>
+        </div>
+      </section>
+
+      <section id="section-stranger-things-gallery">
+        <div class="container section-text">
+          <h2>Uma das séries mais assistidas da Netflix</h2>
+          <ul class="gallery-container" role="gallery">
+            <li class="gallery-image invert-element">
+              <img src="assets/images/content/serie-image-01.png" alt="Imagem do Vecna" />
+            </li>
+            <li class="gallery-image invert-element">
+              <img src="assets/images/content/serie-image-02.png" alt="Imagem dos amigos da Eleven" />
+            </li>
+            <li class="gallery-image invert-element">
+              <img src="assets/images/content/serie-image-03.png" alt="Imagem da Eleven" />
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="section-form" class="container">
+        <h2>Clube D&D</h2>
+        <p>
+          Lutar ou fugir? Morrer como um herói ou escapar para viver?
+          A jornada para deter Vecna é repleta de caminhos obscuros que só 
+          você e sua equipe podem iluminar. Se tiver coragem e disposto a arriscar
+          tudo, tente a sorte no clube de D&D de Hawkings e veremos se rodar 
+          o D20 é apenas sorte de principante ou não...
+        </p>
+
+        <div class="form-content">
+          <h3>Entre para o clube de D&D e tenha experiências de <span> <p class="inverted-element">outro mundo</p></span></h3>
+
+          <div class="form-container">
+            <form>
+              <label for="name">Nome Completo</label>
+              <input type="text" name="name" id="txtName">
+          
+              <label for="email">E-mail</label>
+              <input type="email" name="email" id="txtEmail">
+          
+              <label for="level">Level</label>
+              <input type="text" name="level" id="txtLevel">
+          
+              <label for="character">Personagem</label>
+              <textarea name="character" cols="30" rows="10" id="txtCharacter"></textarea>
+            
+              <button type="button" id="btnSubscribe">Tentar a sorte</button>
+            </form>
+            
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Projeto construído para o portfólio, em conjunto com a live de aprendizado, com o objetivo de colocar em
+        prática os conhecimentos de HTML, CSS aprendidos na DIO. <br>
+        Me acompanhe no <a href="https://linkedin.com/in/luan-torres-b991baab/" target="_unblank" >Linkedin</a>
+      </p>  
+      
+    </footer>
+    
+    <script type="module" src="assets/js/main.js"></script>
+
+    <script>
+      window.addEventListener('click', function() {
+        const audio = document.getElementById('music');
+        audio.play();
+        audio.volume = 0.3;
+      })
+
+      function switchTheme() {
+        document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('light-theme');
+
+        const theme = document.body.classList[0];
+        const music = theme === 'light-theme' ? 'normal-world.mpeg' : 'inverted-world.mpeg'
+
+        const audio = document.getElementById('music');
+        audio.src = `assets/musics/${music}`;
+        audio.play();
+        audio.volume = 0.3;
+      }
+      
+    </script>
+  </body>
+</html>
